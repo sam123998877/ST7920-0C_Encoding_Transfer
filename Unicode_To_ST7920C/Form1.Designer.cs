@@ -1,4 +1,4 @@
-﻿namespace Unicode_To_ST7920C
+﻿namespace Unicode_To_ST7920F
 {
     partial class Form1
     {
@@ -34,6 +34,10 @@
             this.statusMessage = new System.Windows.Forms.ToolStripStatusLabel();
             this.rdbStringStyle = new System.Windows.Forms.RadioButton();
             this.rdbArrayStyle = new System.Windows.Forms.RadioButton();
+            this.rdb8051Style1 = new System.Windows.Forms.RadioButton();
+            this.cbParentheses = new System.Windows.Forms.CheckBox();
+            this.rdb8051Style2 = new System.Windows.Forms.RadioButton();
+            this.cbPatch = new System.Windows.Forms.CheckBox();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -54,10 +58,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tbxOutput.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxOutput.Location = new System.Drawing.Point(12, 104);
+            this.tbxOutput.Location = new System.Drawing.Point(12, 121);
             this.tbxOutput.Multiline = true;
             this.tbxOutput.Name = "tbxOutput";
-            this.tbxOutput.Size = new System.Drawing.Size(458, 270);
+            this.tbxOutput.Size = new System.Drawing.Size(458, 253);
             this.tbxOutput.TabIndex = 1;
             this.tbxOutput.MouseClick += new System.Windows.Forms.MouseEventHandler(this.tbxOutput_MouseClick);
             // 
@@ -81,7 +85,7 @@
             // 
             this.rdbStringStyle.AutoSize = true;
             this.rdbStringStyle.Checked = true;
-            this.rdbStringStyle.Location = new System.Drawing.Point(25, 64);
+            this.rdbStringStyle.Location = new System.Drawing.Point(12, 64);
             this.rdbStringStyle.Name = "rdbStringStyle";
             this.rdbStringStyle.Size = new System.Drawing.Size(59, 16);
             this.rdbStringStyle.TabIndex = 3;
@@ -93,7 +97,7 @@
             // rdbArrayStyle
             // 
             this.rdbArrayStyle.AutoSize = true;
-            this.rdbArrayStyle.Location = new System.Drawing.Point(105, 64);
+            this.rdbArrayStyle.Location = new System.Drawing.Point(77, 64);
             this.rdbArrayStyle.Name = "rdbArrayStyle";
             this.rdbArrayStyle.Size = new System.Drawing.Size(59, 16);
             this.rdbArrayStyle.TabIndex = 4;
@@ -102,11 +106,61 @@
             this.rdbArrayStyle.UseVisualStyleBackColor = true;
             this.rdbArrayStyle.CheckedChanged += new System.EventHandler(this.tbxInput_TextChanged);
             // 
+            // rdb8051Style1
+            // 
+            this.rdb8051Style1.AutoSize = true;
+            this.rdb8051Style1.Location = new System.Drawing.Point(142, 64);
+            this.rdb8051Style1.Name = "rdb8051Style1";
+            this.rdb8051Style1.Size = new System.Drawing.Size(95, 16);
+            this.rdb8051Style1.TabIndex = 5;
+            this.rdb8051Style1.TabStop = true;
+            this.rdb8051Style1.Text = "8051用[1Byte]";
+            this.rdb8051Style1.UseVisualStyleBackColor = true;
+            this.rdb8051Style1.CheckedChanged += new System.EventHandler(this.rdb8051Style1_CheckedChanged);
+            // 
+            // cbParentheses
+            // 
+            this.cbParentheses.AutoSize = true;
+            this.cbParentheses.Location = new System.Drawing.Point(12, 86);
+            this.cbParentheses.Name = "cbParentheses";
+            this.cbParentheses.Size = new System.Drawing.Size(60, 16);
+            this.cbParentheses.TabIndex = 6;
+            this.cbParentheses.Text = "加括弧";
+            this.cbParentheses.UseVisualStyleBackColor = true;
+            this.cbParentheses.CheckedChanged += new System.EventHandler(this.cbParentheses_CheckedChanged);
+            // 
+            // rdb8051Style2
+            // 
+            this.rdb8051Style2.AutoSize = true;
+            this.rdb8051Style2.Location = new System.Drawing.Point(243, 64);
+            this.rdb8051Style2.Name = "rdb8051Style2";
+            this.rdb8051Style2.Size = new System.Drawing.Size(95, 16);
+            this.rdb8051Style2.TabIndex = 7;
+            this.rdb8051Style2.TabStop = true;
+            this.rdb8051Style2.Text = "8051用[2Byte]";
+            this.rdb8051Style2.UseVisualStyleBackColor = true;
+            this.rdb8051Style2.CheckedChanged += new System.EventHandler(this.rdb8051Style2_CheckedChanged);
+            // 
+            // cbPatch
+            // 
+            this.cbPatch.AutoSize = true;
+            this.cbPatch.Location = new System.Drawing.Point(77, 86);
+            this.cbPatch.Name = "cbPatch";
+            this.cbPatch.Size = new System.Drawing.Size(96, 16);
+            this.cbPatch.TabIndex = 8;
+            this.cbPatch.Text = "補0 (For 8051)";
+            this.cbPatch.UseVisualStyleBackColor = true;
+            this.cbPatch.CheckedChanged += new System.EventHandler(this.cbPatch_CheckedChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(482, 407);
+            this.Controls.Add(this.cbPatch);
+            this.Controls.Add(this.rdb8051Style2);
+            this.Controls.Add(this.cbParentheses);
+            this.Controls.Add(this.rdb8051Style1);
             this.Controls.Add(this.rdbArrayStyle);
             this.Controls.Add(this.rdbStringStyle);
             this.Controls.Add(this.statusStrip1);
@@ -114,7 +168,7 @@
             this.Controls.Add(this.tbxInput);
             this.MinimumSize = new System.Drawing.Size(400, 300);
             this.Name = "Form1";
-            this.Text = "Unicode轉ST7920C編碼";
+            this.Text = "Unicode轉ST7920F編碼";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
@@ -131,6 +185,10 @@
         private System.Windows.Forms.ToolStripStatusLabel statusMessage;
         private System.Windows.Forms.RadioButton rdbStringStyle;
         private System.Windows.Forms.RadioButton rdbArrayStyle;
+        private System.Windows.Forms.RadioButton rdb8051Style1;
+        private System.Windows.Forms.CheckBox cbParentheses;
+        private System.Windows.Forms.RadioButton rdb8051Style2;
+        private System.Windows.Forms.CheckBox cbPatch;
     }
 }
 

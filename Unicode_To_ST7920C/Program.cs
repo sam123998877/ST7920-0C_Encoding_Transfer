@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Unicode_To_ST7920C
+namespace Unicode_To_ST7920F
 {
     static class Program
     {
